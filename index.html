@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 24th Birthday Anjana</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+    :root {
+      --pink: #ff5f91;
+      --light-pink: #ffd6e4;
+      --purple: #8b5cf6;
+      --dark: #190d27;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Montserrat, sans-serif;
+      background: var(--dark);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 90px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .script {
+      font-family: "Dancing Script", cursive;
+    }
+
+    /* Opening screen */
+    .opening {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 20%, #773e9d, transparent 30%),
+        radial-gradient(circle at 80% 80%, #e83d80, transparent 30%),
+        #190d27;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .opening.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .opening-content {
+      padding: 30px;
+      max-width: 620px;
+    }
+
+    .opening h1 {
+      font-size: clamp(42px, 8vw, 82px);
+      margin: 20px 0;
+      color: #ffd7e6;
+    }
+
+    .opening p {
+      color: #eaddeb;
+      margin-bottom: 30px;
+    }
+
+    .open-btn,
+    .surprise-btn {
+      border: 0;
+      border-radius: 40px;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ff5f91, #9b5de5);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255, 95, 145, .35);
+      transition: .3s;
+    }
+
+    .open-btn:hover,
+    .surprise-btn:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    /* Background decorations */
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .35;
+      pointer-events: none;
+    }
+
+    .glow.one {
+      background: #ff4f91;
+      top: -100px;
+      left: -100px;
+    }
+
+    .glow.two {
+      background: #714cff;
+      right: -100px;
+      bottom: -100px;
+    }
+
+    .heart {
+      position: fixed;
+      color: #ff7ca8;
+      font-size: 20px;
+      animation: floatHeart 7s linear infinite;
+      opacity: .7;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes floatHeart {
+      from {
+        transform: translateY(105vh) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: .8;
+      }
+      to {
+        transform: translateY(-15vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      text-align: center;
+      background:
+        linear-gradient(rgba(25, 13, 39, .45), rgba(25, 13, 39, .85)),
+        url("https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .hero small {
+      color: #ffd1e0;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 100px);
+      line-height: .95;
+      margin: 25px 0;
+      color: white;
+      text-shadow: 0 5px 20px rgba(0,0,0,.3);
+    }
+
+    .hero h1 span {
+      color: #ff9fbd;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #f7eaf1;
+      font-size: 18px;
+    }
+
+    .scroll-down {
+      margin-top: 45px;
+      color: #ffd0df;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      50% { transform: translateY(10px); }
+    }
+
+    /* Main headings */
+    .section-content {
+      width: min(1100px, 100%);
+      position: relative;
+      z-index: 2;
+    }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .heading h2 {
+      font-family: "Dancing Script", cursive;
+      color: #ffabc5;
+      font-size: clamp(42px, 7vw, 70px);
+    }
+
+    .heading p {
+      color: #d8c9dc;
+      margin-top: 8px;
+    }
+
+    /* Message section */
+    .message-section {
+      background: linear-gradient(135deg, #281238, #411743);
+    }
+
+    .letter {
+      max-width: 760px;
+      margin: auto;
+      padding: 45px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    }
+
+    .letter p {
+      color: #f6e9f0;
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      color: #ffabc5;
+      font-size: 34px;
+      text-align: right;
+      margin-top: 25px;
+    }
+
+    /* Gallery */
+    .gallery-section {
+      background: #160b22;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .photo {
+      height: 310px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+    }
+
+    .photo:nth-child(2),
+    .photo:nth-child(5) {
+      transform: translateY(30px);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .photo:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo::after {
+      content: "A beautiful memory ❤️";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+      color: white;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    .photo:hover::after {
+      opacity: 1;
+    }
+
+    /* Reasons */
+    .reasons-section {
+      background: linear-gradient(135deg, #251033, #64204d);
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .reason {
+      text-align: center;
+      padding: 30px 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      transition: .3s;
+    }
+
+    .reason:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,.17);
+    }
+
+    .reason .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .reason h3 {
+      color: #ffd0df;
+      margin-bottom: 10px;
+    }
+
+    .reason p {
+      color: #ead8e5;
+      font-size: 14px;
+    }
+
+    /* Final section */
+    .final-section {
+      text-align: center;
+      background:
+        linear-gradient(rgba(25, 13, 39, .5), rgba(25, 13, 39, .9)),
+        url("https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .final-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-content h2 {
+      font-size: clamp(46px, 8vw, 90px);
+      color: #ffabc5;
+      line-height: 1;
+      margin: 20px 0;
+    }
+
+    .final-content p {
+      font-size: 19px;
+      color: #faeaf1;
+      margin-bottom: 30px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 22px;
+      background: #100819;
+      color: #bdaabe;
+      font-size: 13px;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.75);
+      z-index: 15;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: linear-gradient(135deg, #481644, #241031);
+      padding: 45px 30px;
+      max-width: 600px;
+      text-align: center;
+      border-radius: 24px;
+      border: 1px solid #ff8aad;
+      animation: pop .5s ease;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-box h2 {
+      font-family: "Dancing Script", cursive;
+      color: #ffabc5;
+      font-size: 58px;
+      margin-bottom: 15px;
+    }
+
+    .modal-box p {
+      color: #f5e2ec;
+      line-height: 1.8;
+    }
+
+    .close-btn {
+      margin-top: 25px;
+      padding: 11px 24px;
+      border: 1px solid #ffabc5;
+      color: white;
+      background: transparent;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 75px 6%;
+      }
+
+      .gallery,
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo,
+      .photo:nth-child(2),
+      .photo:nth-child(5) {
+        height: 340px;
+        transform: none;
+      }
+
+      .letter {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Opening Screen -->
+  <div class="opening" id="opening">
+    <div class="opening-content">
+      <div style="font-size: 55px;">🎁</div>
+      <h1 class="script">A special surprise for Anjana</h1>
+      <p>Someone very special is celebrating her 24th birthday today.</p>
+      <button class="open-btn" onclick="openWebsite()">
+        Open Your Surprise 💖
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left: 8%; animation-delay: 1s;">♥</div>
+  <div class="heart" style="left: 22%; animation-delay: 4s;">♥</div>
+  <div class="heart" style="left: 48%; animation-delay: 2s;">♥</div>
+  <div class="heart" style="left: 70%; animation-delay: 5s;">♥</div>
+  <div class="heart" style="left: 88%; animation-delay: 3s;">♥</div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div class="hero-content">
+      <small>Today is your special day</small>
+      <h1 class="script">
+        Happy 24th Birthday<br>
+        <span>Anjana Singh</span>
+      </h1>
+      <p>
+        May your life always be filled with happiness, beautiful memories,
+        laughter, success, and endless love.
+      </p>
+      <div class="scroll-down">Scroll down for your surprise ↓</div>
+    </div>
+  </section>
+
+  <!-- Letter -->
+  <section class="message-section">
+    <div class="section-content">
+      <div class="heading">
+        <h2>A Letter For You</h2>
+        <p>From someone who loves you very much</p>
+      </div>
+
+      <div class="letter">
+        <p>Dear Anjana,</p>
+
+        <p>
+          Today is not just another day. Today is the day we celebrate the
+          beautiful person you are and all the happiness you bring into the
+          lives of everyone around you.
+        </p>
+
+        <p>
+          You are kind, caring, strong, funny, and truly special. Your smile
+          can make difficult days feel better, and your presence makes every
+          moment more memorable.
+        </p>
+
+        <p>
+          On your 24th birthday, I hope all your dreams come true. May this
+          new chapter bring you success, peace, adventure, good health, and
+          countless reasons to smile.
+        </p>
+
+        <p>
+          Never forget how loved and important you are. Keep shining and keep
+          being the amazing person you are.
+        </p>
+
+        <div class="signature script">
+          With lots of love 💕
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-section">
+    <div class="section-content">
+      <div class="heading">
+        <h2>Beautiful Memories</h2>
+        <p>Every picture tells a special story</p>
+      </div>
+
+      <div class="gallery">
+        <!-- Replace these images with Anjana's photos -->
+        <div class="photo">
+          <img src="IMG1.jpg" alt="Memory 1">
+        </div>
+
+        <div class="photo">
+          <img src="IMG2.jpg" alt="Memory 2">
+        </div>
+
+        <div class="photo">
+          <img src="IMG3.jpg" alt="Memory 3">
+        </div>
+
+        <div class="photo">
+          <img src="IMG4.jpg" alt="Memory 4">
+        </div>
+
+        <div class="photo">
+          <img src="IMG5.jpg" alt="Memory 5">
+        </div>
+
+        <div class="photo">
+          <img src="IMG6.png" alt="Memory 6">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reasons -->
+  <section class="reasons-section">
+    <div class="section-content">
+      <div class="heading">
+        <h2>Why Anjana Is Special</h2>
+        <p>There are a million reasons, but here are just a few</p>
+      </div>
+
+      <div class="reason-grid">
+        <div class="reason">
+          <div class="icon">💖</div>
+          <h3>Beautiful Heart</h3>
+          <p>
+            You care deeply about everyone around you and always spread
+            kindness wherever you go.
+          </p>
+        </div>
+
+        <div class="reason">
+          <div class="icon">✨</div>
+          <h3>Bright Personality</h3>
+          <p>
+            Your energy and smile can make even the most ordinary day feel
+            special.
+          </p>
+        </div>
+
+        <div class="reason">
+          <div class="icon">🌟</div>
+          <h3>Incredible Strength</h3>
+          <p>
+            You face every challenge with courage and continue to inspire
+            everyone around you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final surprise -->
+  <section class="final-section">
+    <div class="final-content">
+      <div style="font-size: 60px;">🎂 🎈 🎁</div>
+      <h2 class="script">Happy Birthday, Anjana!</h2>
+      <p>
+        May your 24th year be your most beautiful year yet.
+        You deserve all the happiness in the world.
+      </p>
+
+      <button class="surprise-btn" onclick="showSurprise()">
+        Click for One More Surprise 💝
+      </button>
+    </div>
+  </section>
+
+  <div class="footer">
+    Made with love especially for Anjana Singh ❤️
+  </div>
+
+  <!-- Surprise Modal -->
+  <div class="modal" id="surpriseModal">
+    <div class="modal-box">
+      <div style="font-size: 55px;">💖</div>
+      <h2 class="script">You Are Loved!</h2>
+      <p>
+        Anjana, never forget that you are surrounded by people who love you,
+        support you, and believe in you. Keep smiling because your smile makes
+        the world a little brighter.
+      </p>
+      <button class="close-btn" onclick="closeSurprise()">Close</button>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script>
+    function openWebsite() {
+      document.getElementById("opening").classList.add("hide");
+      startConfetti();
+    }
+
+    function showSurprise() {
+      document.getElementById("surpriseModal").classList.add("show");
+      startConfetti();
+    }
+
+    function closeSurprise() {
+      document.getElementById("surpriseModal").classList.remove("show");
+    }
+
+    // Confetti animation
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+
+    let pieces = [];
+    let confettiRunning = false;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function startConfetti() {
+      for (let i = 0; i < 180; i++) {
+        pieces.push({
+          x: Math.random() * canvas.width,
+          y: -20 - Math.random() * canvas.height,
+          size: Math.random() * 8 + 4,
+          speed: Math.random() * 4 + 2,
+          rotation: Math.random() * 360,
+          color: ["#ff5f91", "#ffd166", "#06d6a0", "#9b5de5", "#ffffff"][
+            Math.floor(Math.random() * 5)
+          ]
+        });
+      }
+
+      if (!confettiRunning) {
+        confettiRunning = true;
+        animateConfetti();
+      }
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      pieces.forEach(piece => {
+        piece.y += piece.speed;
+        piece.rotation += 4;
+
+        ctx.save();
+        ctx.translate(piece.x, piece.y);
+        ctx.rotate(piece.rotation * Math.PI / 180);
+        ctx.fillStyle = piece.color;
+        ctx.fillRect(-piece.size / 2, -piece.size / 2, piece.size, piece.size);
+        ctx.restore();
+      });
+
+      pieces = pieces.filter(piece => piece.y < canvas.height + 30);
+
+      if (pieces.length > 0) {
+        requestAnimationFrame(animateConfetti);
+      } else {
+        confettiRunning = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

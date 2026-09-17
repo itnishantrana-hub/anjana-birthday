@@ -475,6 +475,10 @@
 
 <body>
 
+  <audio id="birthdayMusic" loop>
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
   <!-- Opening Screen -->
   <div class="opening" id="opening">
     <div class="opening-content">
@@ -518,7 +522,7 @@
     <div class="section-content">
       <div class="heading">
         <h2>A Letter For You</h2>
-        <p>From someone who loves you very much</p>
+        <p>With lots of love, from your little brother ❤️</p>
       </div>
 
       <div class="letter">
@@ -667,10 +671,15 @@
   <canvas id="confetti"></canvas>
 
   <script>
-    function openWebsite() {
-      document.getElementById("opening").classList.add("hide");
-      startConfetti();
-    }
+   function openWebsite() {
+  document.getElementById("opening").classList.add("hide");
+
+  const music = document.getElementById("birthdayMusic");
+  music.volume = 0.5;
+  music.play();
+
+  startConfetti();
+}
 
     function showSurprise() {
       document.getElementById("surpriseModal").classList.add("show");
